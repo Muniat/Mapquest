@@ -1,0 +1,7 @@
+{
+  "name": "Mapquest",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
