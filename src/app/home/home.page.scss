@@ -25,3 +25,46 @@
 #container a {
   text-decoration: none;
 }
+
+.control{
+  margin-top: 20px;
+  text-align: center;
+}
+.control input, .control button{
+  font-size: 15pt;
+
+}
+
+#getDirections{
+  background-color: #5473a9;
+  border: 2px solid black;
+  border-radius: 4px;
+  font-size: 24px;
+}
+.view{
+  margin-top: 20px;
+}
+img{
+  width: 80%;
+  height: 80%; 
+  display: block;
+}
+h3{
+  color: black;
+    text-align: center;
+    font-weight: bold;
+}
+
+h2, a, img{
+   padding-left: 15px;
+    padding-right: 20px;
+    padding-top:10px;
+    padding-bottom: 10px;
+    width:auto;
+    text-align:justify;
+    vertical-align: middle;
+}
+
+.heading{
+  color: #5473a9;
+}

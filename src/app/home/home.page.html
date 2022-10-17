@@ -1,20 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Map Quest
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content [fullscreen]="true" padding>
+  <div class="control">
+    <input type="text" id="from" [(ngModel)]="from" >
+    <input type="text" id="to" [(ngModel)]="to" >
+    <button id="getDirections" (click)="getDir()">Get Directions</button>
   </div>
+  <div class="view">
+    <h3 class="heading">Distance: {{data.distance | number}}m - Duration: {{data.formattedTime}}</h3>
+    <ion-list>
+      <ion-item *ngFor="let directions of data.legs[0].maneuvers; let i=index">
+        <ion-thumbnail slot="start">
+          <img src='{{directions.iconUrl}}'>
+        </ion-thumbnail>
+        <h2> {{i+1}} </h2>
+        <a href='{{directions.mapUrl}}' target="_blank">{{directions.narrative}}</a>
+        <h2> {{directions.distance | number}}m </h2>
+      
+      </ion-item>
+    </ion-list>
+  </div>
+
 </ion-content>

@@ -1,12 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { MapquestService } from '../mapquest.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
 
-  constructor() {}
+  data: any;
+  from: string = "Boston, MA";
+  to: string = "Cambridge, MA";
+
+  constructor(private mapquestService: MapquestService) {}
+
+  getDir(){
+    this.mapquestService.getDirections(this.from, this.to)
+    .subscribe(result => {
+      console.log(result);
+      this.data = result.route;
+    })
+  }
+  
+  ngOnInit(): void {
+    this.mapquestService.getDirections(this.from, this.to)
+    .subscribe(result => {
+      console.log(result);
+      this.data = result.route;
+    })
+  }
 
 }
